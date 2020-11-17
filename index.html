@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Face The Music</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/css/uikit.min.css" />
+
+    <!-- Custom CSS -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet">
+</head>
+
+<body class="body">
+    <!-- Jumbotron Header -->
+    <div class="jumbotron uk-width-1-1 text-center uk-background-secondary uk-container uk-animation-slide-top">
+        <h1 class="title uk-heading-primary uk-position-top uk-light">FACE THE MUSIC</h1>
+        <br>
+        <p class="lead uk-light">A blend of music and machine-learning.</p>
+        <hr class="my-2">
+    </div>
+    <!-- Cards -->
+    <div class="uk-container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="row">
+                    <div class="col-12 text-center ">
+                        <!-- Photo Upload Input -->
+                        <div class="uk-card-secondary  uk-animation-slide-left uk-card-hover">
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">Link a photo of yourself.</h3>
+                                <p class="card-text accentText">So we can gauge how you feel.</p>
+                                <hr>
+                                <!-- <input id="picture-input" type='file' onchange="readURL(this);" /> -->
+                                <div class="form-group">
+                                    <label for="facebook-link"></label>
+                                    <input type="text" class="form-control" name="facebook-link" id="facebook-link"
+                                        aria-describedby="helpId" placeholder="Paste link to profile image.">
+                                    <small id="helpId" class="form-text text-muted">*Forward facing images work best.</small>
+                                    <br>
+                                    <br>
+                                    <button id="picture-submit" type="submit" class="uk-button-default">SUBMIT</button>
+                                    <br>
+                                    <h3 id="see-recommendation"></h3>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Uploaded Image / Recommended Thumbnails -->
+
+            <div class="col-lg-4 col-m-12 col-sm-12">
+                <div class="uk-card-secondary  uk-animation-fade uk-card-hover">
+                    <div class="uk-card-body">
+                        <!-- Emotion detection span id is "emotion-output"  PLaceholder is Happy!-->
+                        <img src="https://via.placeholder.com/400x400" id="emotion-detect-image" class="img-fluid rounded-top"
+                            alt="img">
+                        <br>
+                        <h1-6 class="accentText" id="determine-text">We scanned your photo and have determined that you
+                            feel:<span class="badge" id="emotionDetect">Happy!</span></h1-6>
+                        <br><br>
+
+                        <a class="uk-button uk-button-default" id="modal-button" href="#modal-center" uk-toggle>Full
+                            Analysis</a>
+
+                        <div id="modal-center" class="uk-flex-top" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                                <button class="uk-modal-close-default" type="button" uk-close></button>
+                                <p id="emot1"></p>
+                                <p id="emot2"></p>
+                                <p id="emot3"></p>
+                                <p id="emot4"></p>
+                                <p id="emot5"></p>
+                                <p id="emot6"></p>
+                                <p id="emot7"></p>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-m-12 col-sm-12">
+                <div class="uk-containter">
+                    <div class="uk-card-secondary  uk-animation-slide-right uk-card-hover">
+                        <div class="uk-card-title">
+                            <h3 class="uk-padding-small uk-margin-medium-top">Other user uploads:</h3>
+                            <hr>
+                        </div>
+
+                        <div class="uk-card-body " id="otherImages" style="overflow-y: scroll; height:400px" ;>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+
+        <div class="row">
+            <div class="col-lg-12 col-m-12 col-sm-12 videocontainer">
+                <div class="uk-card-secondary uk-animation-slide-bottom uk-overflow-auto uk-card-hover">
+                    <div class="uk-card-body videoDiv">
+                        <h3>Our recommendation:</h3>
+                        <div id="player"></div>
+                        <table class="uk-table uk-table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Artist Name</th>
+                                    <th>Most Popular Songs</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td id="artist-name"></td>
+                                    <td id="artist-info"></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!--****I had to replace the previous jQuery link because the SLIM version did not have the ability to do ajax responses-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+
+    <script src="assets/javascript/Firebase.js"></script>
+    <script src="assets/javascript/Face.js"></script>
+    <!-- <script src="youtube.js"></script> -->
+    <!-- UIKit -->
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
+
+</body>
+
+</html>

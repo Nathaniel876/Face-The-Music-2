@@ -1,0 +1,41 @@
+#emotionDetect-image{
+    width: auto;
+    height:300px;
+}
+
+.accentText {
+    color: #a239ca
+}
+
+.body{
+    background: rgb(39, 39, 39)
+}
+.videocontainer{
+   margin-top: 30px;
+}
+
+.title{
+    font-family: 'Syncopate', sans-serif;
+
+}
+
+#modal-button{
+    color: #a239ca;
+    transform: scale(.8);
+    border-color: #a239ca;
+}
+
+#picture-submit{
+    color:#a239ca;
+    background-color: transparent;
+    border-color: #a239ca;
+    font-size: 77%;
+}
+    
+
+#picture-submit,
+#modal-button{
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+ 
