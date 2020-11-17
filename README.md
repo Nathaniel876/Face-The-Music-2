@@ -1,6 +1,6 @@
 # Project-1
 
-## Idea
+## Ideas
 
 Build an online web app that recognizes faces and emotion and recommends music from YouTube based on periceved emotion.
 
